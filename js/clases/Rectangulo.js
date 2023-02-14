@@ -1,16 +1,12 @@
-/* autor Diego */
-class Triangulo{
-        
+export class Rectangulo{
     constructor(){
         this.base = 0;
         this.altura = 0;
     }
 
     area(){
-        let area = (this.base * this.altura) / 2;
-        return area;
+        let area = this.base * this.altura
     }
-
 
     set base(bas){
         this.base = bas;
@@ -19,7 +15,4 @@ class Triangulo{
     set altura(alt){
         this.altura = alt;
     }
-
-    
-
 }
