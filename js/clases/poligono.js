@@ -1,3 +1,7 @@
+/**
+* @author Javi @ziscou
+*
+*/
 export class Poligono{
     constructor(long_lados, num_lados);
 

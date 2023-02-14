@@ -1,12 +1,24 @@
+/**
+* @author Diego @dieguxo91
+*
+*/
 function crearInput() {
     let cajita = document.createElement('input');
     return cajita;
 }
 
+/**
+* @author Diego @dieguxo91
+*
+*/
 function insertarEnNodo(div, input) {
     div.appendChild(input);
 }
 
+/**
+* @author Rubén @rubenalarcongalvez
+*
+*/
 function activar(eleccion) {
     let triangulo = document.querySelector('#triangulo');
     let rectangulo = document.querySelector('#rectangulo');
@@ -53,6 +65,10 @@ function activar(eleccion) {
     }
 }
 
+/**
+* @author Diego @dieguxo91
+*
+*/
 function crearTriangulo() {
     let accion = document.querySelector('#accion');
 
