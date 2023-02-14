@@ -1,3 +1,6 @@
+/*=============================================
+=            Formato general            =
+=============================================*/
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +9,10 @@
   list-style: none;
 }
 
+/*=====  Final de Formato general  ======*/
+/*=============================================
+=            Formato proyecto            =
+=============================================*/
 footer a {
   color: white;
   text-decoration: none;
@@ -13,4 +20,6 @@ footer a {
 
 footer a:hover {
   color: aqua;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*=====  Final de Formato proyecto  ======*//*# sourceMappingURL=styles.css.map */
