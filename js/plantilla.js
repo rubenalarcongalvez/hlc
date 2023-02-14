@@ -1,0 +1,1 @@
+import { crearTriangulo } from "../apps/service";
