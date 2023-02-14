@@ -1,6 +1,6 @@
 export class cuadrado {
     constructor() {
-        this.lado;
+        this.lado = 0;
     }
 
     set establecer(lado) {
