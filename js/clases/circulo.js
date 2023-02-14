@@ -1,6 +1,6 @@
 export class circulo {
     constructor() {
-        this.radio;
+        this.radio = 0;
     }
 
     set establecer(radio) {
