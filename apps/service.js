@@ -7,7 +7,7 @@ function insertarEnNodo(div, input){
     div.appendChild(input);
 }
 
-function crearTriangulo(){
+export function crearTriangulo(){
     let cajita1 = crearInput();
     let cajita2 = crearInput();
 
