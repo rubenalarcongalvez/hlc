@@ -3,8 +3,19 @@ function crearInput() {
     return cajita;
 }
 
-function insertarEnNodo(div, input) {
+function insertar2input(div, input, input2) {
     div.appendChild(input);
+    div.appendChild(input2);
+}
+
+function limpiarDiv(div){
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+}
+
+function obtenerMain(){
+    return document.querySelector('#accion');
 }
 
 function activar(eleccion) {
@@ -53,18 +64,22 @@ function activar(eleccion) {
     }
 }
 
-function crearTriangulo() {
-    let accion = document.querySelector('#accion');
+function BaseAltura() {
+    let accion = obtenerMain();
 
-    while (accion.firstChild) {
-        accion.removeChild(accion.firstChild);
-    }
+    limpiarDiv(accion);
 
     let cajita1 = crearInput();
     let cajita2 = crearInput();
 
-    cajita1.className = 'estiloTriangulo';
+    let boton = document.createElement('button');
+    boton.onclick("recogerInput()");
 
-    accion.appendChild(cajita1);
-    accion.appendChild(cajita2);
+    insertar2input(accion, cajita1, cajita2);
+}
+
+recoger
+
+function radio(){
+
 }
