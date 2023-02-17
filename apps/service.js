@@ -112,15 +112,13 @@ function recogerInput(){ //    3
     sacarAreaPeri(base.value, altura.value);
 }
 function sacarAreaPeri(base,altura){    //    4
-    console.log("paco")
-    console.log(base)
     let area = (base * altura) / 2;
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
     var spanArea = document.createElement('span');
-    console.log(area)
     spanArea.innerHTML= area;
     areaResul.appendChild(spanArea);
+    
     let perimetro = base * 3;
     var periResul = document.querySelector("#perimetro");
     periResul.innerHTML="Perimetro: ";
