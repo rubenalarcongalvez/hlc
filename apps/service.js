@@ -73,34 +73,45 @@ function activar(eleccion) {
     }
 }
 
+/**
+* @author Diego @dieguxo91
+*
+*/
+
+
+//  Triangulo
+
 function BaseAltura() { //    Esta es la funcion principal del rectangulo 
     let accion = obtenerMain();
 
     limpiarDiv(accion);
 
-    accion.className = "d-flex  gap-4 pt-2 col-10 m-auto";
-    
+    accion.className = "d-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto";
+    // el input para la base
     let cajita1 = crearInput();
     cajita1.placeholder="Introduzca la base";
     cajita1.id = "cajita1";
-    //cajita1.className="col-5";
+    cajita1.className="col-5";
 
+    // el input para la altura
     let cajita2 = crearInput();
     cajita2.placeholder="Introduzca la altura";
     cajita2.id = "cajita2";
-    //cajita2.className="col-5";
+    cajita2.className="col-5";
 
+    // El parrafo para el resultado del area
     let area = document.createElement('p');
     area.id = "area";
-    area.placeholder="Aqui aparecera su area";
+    area.className = "col-3";
 
+    // El parrafo para el resultado del perimetro
     let perimetro = document.createElement('p');
     perimetro.id = "perimetro";
-    perimetro.placeholder="Aqui aparecera su perimetro";
 
     let boton = botonFuncion();
     
     insertar2inputBoton(accion, cajita1, cajita2, boton);
+    
     accion.appendChild(area);
     accion.appendChild(perimetro);
 }
@@ -111,19 +122,24 @@ function recogerInput(){ //    3
     
     sacarAreaPeri(base.value, altura.value);
 }
-function sacarAreaPeri(base,altura){    //    4
+
+
+function sacarAreaPeri(base,altura){    //Formulas de area y perimetro para el triangulo
     let area = (base * altura) / 2;
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
+    areaResul.className="fw-bold"
     var spanArea = document.createElement('span');
-    spanArea.innerHTML= area;
+    spanArea.innerHTML= area + "cm";
     areaResul.appendChild(spanArea);
-    
+
     let perimetro = base * 3;
     var periResul = document.querySelector("#perimetro");
     periResul.innerHTML="Perimetro: ";
+    periResul.className="fw-bold"
     var spanPeri = document.createElement('span');
-    spanPeri.innerHTML= perimetro;
+    spanPeri.innerHTML= perimetro + "cm";
+    spanPeri.className="fw-none";
     periResul.appendChild(spanPeri);
 }
 
