@@ -7,12 +7,20 @@ function crearInput() {
     return cajita;
 }
 
-/**
-* @author Diego @dieguxo91
-*
-*/
-function insertarEnNodo(div, input) {
+function insertar2inputBoton(div, input, input2, boton) {
     div.appendChild(input);
+    div.appendChild(input2);
+    div.appendChild(boton)
+}
+
+function limpiarDiv(div){
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+}
+
+function obtenerMain(){
+    return document.querySelector('#accion');
 }
 
 /**
@@ -65,22 +73,46 @@ function activar(eleccion) {
     }
 }
 
-/**
-* @author Diego @dieguxo91
-*
-*/
-function crearTriangulo() {
-    let accion = document.querySelector('#accion');
+function BaseAltura() { //    0
+    let accion = obtenerMain();
 
-    while (accion.firstChild) {
-        accion.removeChild(accion.firstChild);
-    }
+    limpiarDiv(accion);
 
+    accion.className = "d-flex justify-content-center gap-4 pt-2";
+    
     let cajita1 = crearInput();
+    cajita1.placeholder="Introduzca la base";
+    cajita1.id = "cajita1";
     let cajita2 = crearInput();
+    cajita2.placeholder="Introduzca la altura";
+    cajita2.id = "cajita2";
 
-    cajita1.className = 'estiloTriangulo';
+    let boton = botonFuncion();//  1
+    
+    insertar2inputBoton(accion, cajita1, cajita2, boton);
+}
 
-    accion.appendChild(cajita1);
-    accion.appendChild(cajita2);
+function recogerInput(){ //    3
+    var base = document.querySelector("#cajita1");
+    var altura = document.querySelector("#cajita2");
+    
+    sacarAreaPeri(base, altura );
+}
+function sacarAreaPeri(base,altura){    //    4
+    if(base == null || altura == null){
+        base = 0;
+        altura = 0;
+    }
+    console.log(base + " " + altura)
+}
+
+function botonFuncion(){  //    2
+    var boton = document.createElement('button');
+    boton.name="Aceptar";
+    boton.onclick(recogerInput);
+    return boton;
+}
+
+function radio(){
+    
 }
