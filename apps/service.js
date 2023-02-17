@@ -65,7 +65,7 @@ function activar(eleccion) {
     }
 }
 
-function BaseAltura() {
+function BaseAltura() { //    0
     let accion = obtenerMain();
 
     limpiarDiv(accion);
@@ -79,19 +79,18 @@ function BaseAltura() {
     cajita2.placeholder="Introduzca la altura";
     cajita2.id = "cajita2";
 
-    let boton = botonFuncion();
+    let boton = botonFuncion();//  1
     
-
     insertar2inputBoton(accion, cajita1, cajita2, boton);
 }
 
-function recogerInput(){
+function recogerInput(){ //    3
     var base = document.querySelector("#cajita1");
     var altura = document.querySelector("#cajita2");
     
     sacarAreaPeri(base, altura );
 }
-function sacarAreaPeri(base,altura){
+function sacarAreaPeri(base,altura){    //    4
     if(base == null || altura == null){
         base = 0;
         altura = 0;
@@ -99,10 +98,10 @@ function sacarAreaPeri(base,altura){
     console.log(base + " " + altura)
 }
 
-function botonFuncion(){
+function botonFuncion(){  //    2
     var boton = document.createElement('button');
     boton.name="Aceptar";
-    boton.onclick("recogerInput()");
+    boton.onclick(recogerInput);
     return boton;
 }
 
