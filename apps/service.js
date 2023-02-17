@@ -1,3 +1,7 @@
+/**
+* @author Diego @dieguxo91
+*
+*/
 function crearInput() {
     let cajita = document.createElement('input');
     return cajita;
@@ -19,6 +23,10 @@ function obtenerMain(){
     return document.querySelector('#accion');
 }
 
+/**
+* @author Rubén @rubenalarcongalvez
+*
+*/
 function activar(eleccion) {
     let triangulo = document.querySelector('#triangulo');
     let rectangulo = document.querySelector('#rectangulo');

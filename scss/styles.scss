@@ -24,4 +24,12 @@ footer a:hover {
     color: aqua;
 }
 
+#disclamer:hover {
+    padding-top: 10px;
+    background-color: darkred;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: background-color 1s, border 1s;
+}
+
 /*=====  Final de Formato proyecto  ======*/

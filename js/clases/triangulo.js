@@ -1,4 +1,7 @@
-/* autor Diego */
+/**
+* @author Diego @dieguxo91
+*
+*/
 class Triangulo{
         
     constructor(){

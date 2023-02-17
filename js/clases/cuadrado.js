@@ -1,4 +1,8 @@
-export class cuadrado {
+/**
+* @author Rubén @rubenalarcongalvez
+*
+*/
+export class Cuadrado {
     constructor() {
         this.lado = 0;
     }

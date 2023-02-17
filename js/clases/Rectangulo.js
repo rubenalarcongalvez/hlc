@@ -1,3 +1,7 @@
+/**
+* @author Diego @dieguxo91
+*
+*/
 export class Rectangulo{
     constructor(){
         this.base = 0;
