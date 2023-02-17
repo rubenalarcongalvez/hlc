@@ -3,9 +3,10 @@ function crearInput() {
     return cajita;
 }
 
-function insertar2input(div, input, input2) {
+function insertar2inputBoton(div, input, input2, boton) {
     div.appendChild(input);
     div.appendChild(input2);
+    div.appendChild(boton)
 }
 
 function limpiarDiv(div){
@@ -69,17 +70,42 @@ function BaseAltura() {
 
     limpiarDiv(accion);
 
+    accion.className = "d-flex justify-content-center gap-4 pt-2";
+    
     let cajita1 = crearInput();
+    cajita1.placeholder="Introduzca la base";
+    cajita1.id = "cajita1";
     let cajita2 = crearInput();
+    cajita2.placeholder="Introduzca la altura";
+    cajita2.id = "cajita2";
 
-    let boton = document.createElement('button');
-    boton.onclick("recogerInput()");
+    let boton = botonFuncion();
+    
 
-    insertar2input(accion, cajita1, cajita2);
+    insertar2inputBoton(accion, cajita1, cajita2, boton);
 }
 
-recoger
+function recogerInput(){
+    var base = document.querySelector("#cajita1");
+    var altura = document.querySelector("#cajita2");
+    
+    sacarAreaPeri(base, altura );
+}
+function sacarAreaPeri(base,altura){
+    if(base == null || altura == null){
+        base = 0;
+        altura = 0;
+    }
+    console.log(base + " " + altura)
+}
+
+function botonFuncion(){
+    var boton = document.createElement('button');
+    boton.name="Aceptar";
+    boton.onclick("recogerInput()");
+    return boton;
+}
 
 function radio(){
-
+    
 }
