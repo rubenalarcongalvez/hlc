@@ -100,12 +100,12 @@ function BaseAltura() { //    Esta es la funcion principal del rectangulo
     cajita2.className="col-5";
 
     // El parrafo para el resultado del area
-    let area = document.createElement('p');
+    let area = document.createElement('h3');
     area.id = "area";
     area.className = "col-3";
 
     // El parrafo para el resultado del perimetro
-    let perimetro = document.createElement('p');
+    let perimetro = document.createElement('h3');
     perimetro.id = "perimetro";
 
     let boton = botonFuncion();
@@ -128,7 +128,6 @@ function sacarAreaPeri(base,altura){    //Formulas de area y perimetro para el t
     let area = (base * altura) / 2;
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
-    areaResul.className="fw-bold"
     var spanArea = document.createElement('span');
     spanArea.innerHTML= area + "cm";
     areaResul.appendChild(spanArea);
@@ -136,10 +135,8 @@ function sacarAreaPeri(base,altura){    //Formulas de area y perimetro para el t
     let perimetro = base * 3;
     var periResul = document.querySelector("#perimetro");
     periResul.innerHTML="Perimetro: ";
-    periResul.className="fw-bold"
     var spanPeri = document.createElement('span');
     spanPeri.innerHTML= perimetro + "cm";
-    spanPeri.className="fw-none";
     periResul.appendChild(spanPeri);
 }
 
