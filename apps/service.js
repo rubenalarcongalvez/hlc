@@ -84,7 +84,7 @@ function BaseAltura() { //    0
     insertar2inputBoton(accion, cajita1, cajita2, boton);
 }
 
-function recogerInput(){ //    3
+function recogerInput(obj){ //    3
     var base = document.querySelector("#cajita1");
     var altura = document.querySelector("#cajita2");
     
@@ -100,8 +100,9 @@ function sacarAreaPeri(base,altura){    //    4
 
 function botonFuncion(){  //    2
     var boton = document.createElement('button');
-    boton.name="Aceptar";
-    boton.onclick(recogerInput);
+    console.log(boton)
+    boton.onclick(recogerInput());
+    console.log(boton)
     return boton;
 }
 
