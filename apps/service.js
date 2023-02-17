@@ -73,26 +73,32 @@ function activar(eleccion) {
     }
 }
 
-function BaseAltura() { //    0
+function BaseAltura() { //    Esta es la funcion principal del rectangulo 
     let accion = obtenerMain();
 
     limpiarDiv(accion);
 
-    accion.className = "d-flex justify-content-center gap-4 pt-2";
+    accion.className = "d-flex  gap-4 pt-2 col-10 m-auto";
     
     let cajita1 = crearInput();
     cajita1.placeholder="Introduzca la base";
     cajita1.id = "cajita1";
+    //cajita1.className="col-5";
+
     let cajita2 = crearInput();
     cajita2.placeholder="Introduzca la altura";
     cajita2.id = "cajita2";
-    let area = crearInput();
+    //cajita2.className="col-5";
+
+    let area = document.createElement('p');
     area.id = "area";
     area.placeholder="Aqui aparecera su area";
-    let perimetro = crearInput();
+
+    let perimetro = document.createElement('p');
     perimetro.id = "perimetro";
     perimetro.placeholder="Aqui aparecera su perimetro";
-    let boton = botonFuncion();//  1
+
+    let boton = botonFuncion();
     
     insertar2inputBoton(accion, cajita1, cajita2, boton);
     accion.appendChild(area);
@@ -107,12 +113,20 @@ function recogerInput(){ //    3
 }
 function sacarAreaPeri(base,altura){    //    4
     console.log("paco")
+    console.log(base)
     let area = (base * altura) / 2;
     var areaResul = document.querySelector("#area");
-    areaResul.innerHTML= area;
+    areaResul.innerHTML="Area: ";
+    var spanArea = document.createElement('span');
+    console.log(area)
+    spanArea.innerHTML= area;
+    areaResul.appendChild(spanArea);
     let perimetro = base * 3;
     var periResul = document.querySelector("#perimetro");
-    periResul.innerHTML= perimetro;
+    periResul.innerHTML="Perimetro: ";
+    var spanPeri = document.createElement('span');
+    spanPeri.innerHTML= perimetro;
+    periResul.appendChild(spanPeri);
 }
 
 function botonFuncion(){  //    2
