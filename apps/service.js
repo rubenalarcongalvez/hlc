@@ -62,7 +62,6 @@ function activar(eleccion) {
 
         case 'rectangulo':
             rectangulo.className = 'nav-link active text-bg-primary';
-
             break;
 
         case 'circulo':
