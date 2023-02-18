@@ -1,17 +1,23 @@
+
 /**
 * @author Diego @dieguxo91
 *
 */
 class Triangulo{
         
-    constructor(){
-        this.base = 0;
-        this.altura = 0;
+    constructor(base, altura){
+        this.base = base;
+        this.altura = altura;
     }
 
     area(){
         let area = (this.base * this.altura) / 2;
         return area;
+    }
+
+    perimetro (){
+        let perimetro = this.base*3;
+        return perimetro;
     }
 
 

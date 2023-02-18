@@ -1,4 +1,3 @@
-<!-- El HTML básicamente lo hemos hecho entre todos. El diseño, ha tenido más que ver Rubén, el manejo de objetos ha tenido más que ver Diego y la implementación de Git y distribución ha tenido más que ver Javier -->
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -18,7 +17,6 @@
         <script src="https://kit.fontawesome.com/78a06bc66f.js" crossorigin="anonymous"></script>
 
         <link rel="website icon" type="png" href="./dist/img/calculadora.png" />
-
         <script src="./apps/service.js"></script>
     </head>
     <body>
@@ -36,27 +34,27 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="rectangulo" class="nav-link" onclick="crearTriangulo(); activar('rectangulo')">
+                        <button id="rectangulo" class="nav-link" onclick=" activar('rectangulo')">
                             Rectángulo
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="circulo" class="nav-link" onclick="crearTriangulo(); activar('circulo')">
+                        <button id="circulo" class="nav-link" onclick=" activar('circulo')">
                             Círculo
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="pentagono" class="nav-link" onclick="crearTriangulo(); activar('pentagono')">
+                        <button id="pentagono" class="nav-link" onclick=" activar('pentagono')">
                             Pentágono
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="cuadrado" class="nav-link" onclick="crearTriangulo(); activar('cuadrado')">
+                        <button id="cuadrado" class="nav-link" onclick=" activar('cuadrado')">
                             Cuadrado
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="hexagono" class="nav-link" onclick="crearTriangulo(); activar('hexagono')">
+                        <button id="hexagono" class="nav-link" onclick=" activar('hexagono')">
                             Hexágono
                         </button>
                     </li>
@@ -66,7 +64,7 @@
 
         <main>
             <div id="accion"></div>
-            <div id="calculos"></div>
+            <div class="d-flex justify-content-center mt-4" id="calculos"></div>
         </main>
 
         <footer class="bg-black text-white p-2 fixed-bottom">
@@ -78,21 +76,20 @@
                 </li>
                 <li><a href="https://github.com/rubenalarcongalvez">Rubén Alarcón</a></li>
             </ul>
-            <div id="disclamer">
-                <h6 class="text-center">Disclamer:</h6>
+            <h6 class="text-center">Disclamer:</h6>
 
-                <p class="text-center m-0" style="font-size: 10px">
-                    Este trabajo está hecho con HTML, SCSS y JavaScript. A pesar de que tengamos más conocimiento y más
-                    amplio de Angular y TypeScript (aunque no mucho) y que no hayamos dado casi nada de JS.
-                </p>
-                <p class="text-center" style="font-size: 10px">
-                    No nos hacemos responsables de ningún daño visual causado por el código tan enigmático e
-                    impredecible propio de JavaScript y de nuestra extensa experiencia en el mismo. Por favor, si ha
-                    sufrido mareos o fatiga, consulte con un especialista en traumatología JavaScript.
-                </p>
-            </div>
+            <p class="text-center m-0" style="font-size: 10px">
+                Este trabajo está hecho con HTML, SCSS y JavaScript. A pesar de que tengamos más conocimiento y más
+                amplio de Angular y TypeScript (aunque no mucho) y que no hayamos dado casi nada de JS.
+            </p>
+            <p class="text-center" style="font-size: 10px">
+                No nos hacemos responsables de ningún daño visual causado por el código tan enigmático e impredecible
+                propio de JavaScript y de nuestra extensa experiencia en el mismo. Por favor, si ha sufrido mareos o
+                fatiga, consulte con un especialista en traumatología JavaScript
+            </p>
         </footer>
 
+        
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

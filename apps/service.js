@@ -1,3 +1,4 @@
+
 /**
 * @author Diego @dieguxo91
 *
@@ -46,10 +47,12 @@ function activar(eleccion) {
     switch (eleccion) {
         case 'triangulo':
             triangulo.className = 'nav-link active text-bg-primary';
+            BaseAlturaTri();
             break;
 
         case 'rectangulo':
             rectangulo.className = 'nav-link active text-bg-primary';
+            
             break;
 
         case 'circulo':
@@ -62,6 +65,7 @@ function activar(eleccion) {
 
         case 'cuadrado':
             cuadrado.className = 'nav-link active text-bg-primary';
+            BaseAlturaCua();
             break;
 
         case 'hexagono':
@@ -79,14 +83,82 @@ function activar(eleccion) {
 */
 
 
+//  Cuadrado
+
+function BaseAlturaCua() { //    Esta es la funcion principal del rectangulo 
+    let accion = obtenerMain();
+    limpiarDiv(accion);
+    accion.className = "d-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto";
+    
+    // el input para la base
+    let cajita1 = crearInput();
+    cajita1.placeholder="Introduzca el lado";
+    cajita1.id = "cajita1";
+    cajita1.className="col-5";
+
+    // El parrafo para el resultado del area
+    let area = document.createElement('h3');
+    area.id = "area";
+
+    // El parrafo para el resultado del perimetro
+    let perimetro = document.createElement('h3');
+    perimetro.id = "perimetro";
+
+    //boton con la funcion de area y perimetro
+    let boton = botonFuncionCua();
+    
+    // insertar la primera parte
+    accion.appendChild(cajita1);
+    accion.appendChild(boton);
+    
+    var calculos = document.querySelector('#calculos');
+
+    calculos.appendChild(area);
+    calculos.appendChild(perimetro);
+}
+
+function recogerInputCua(){ 
+    var lado = document.querySelector("#cajita1");
+    sacarAreaPeri(lado.value);
+}
+
+function sacarAreaPeri(lado){    //Formulas de area y perimetro para el cuadrado
+    console.log(lado)
+    var areaResul = document.querySelector("#area");
+    areaResul.innerHTML="Area: ";
+    var spanArea = document.createElement('span');
+    spanArea.innerHTML= Math.pow(lado, 2) + "cm";
+    areaResul.appendChild(spanArea);
+
+    var periResul = document.querySelector("#perimetro");
+    periResul.innerHTML="Perimetro: ";
+    var spanPeri = document.createElement('span');
+    spanPeri.innerHTML= lado*4 + "cm";
+    periResul.appendChild(spanPeri);
+}
+
+function botonFuncionCua(){  //    2
+    var boton = document.createElement('button');
+
+    boton.type="submit";
+    boton.className="btn btn-warning";
+    boton.onclick=(()=>{
+        recogerInputCua()
+    });
+    boton.innerHTML = "Aceptar" 
+    return boton;
+}
+
+
+
+
 //  Triangulo
 
-function BaseAltura() { //    Esta es la funcion principal del rectangulo 
+function BaseAlturaTri() { //    Esta es la funcion principal del rectangulo 
     let accion = obtenerMain();
-
     limpiarDiv(accion);
-
     accion.className = "d-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto";
+    
     // el input para la base
     let cajita1 = crearInput();
     cajita1.placeholder="Introduzca la base";
@@ -108,12 +180,19 @@ function BaseAltura() { //    Esta es la funcion principal del rectangulo
     let perimetro = document.createElement('h3');
     perimetro.id = "perimetro";
 
+    //boton con la funcion de area y perimetro
     let boton = botonFuncion();
     
-    insertar2inputBoton(accion, cajita1, cajita2, boton);
+    // insertar la primera parte
+    div.appendChild(cajita1);
+    div.appendChild(cajita2);
+    div.appendChild(boton);
     
-    accion.appendChild(area);
-    accion.appendChild(perimetro);
+    var calculos = document.querySelector('#calculos');
+
+    calculos.appendChild(area);
+    calculos.appendChild(perimetro);
+
 }
 
 function recogerInput(){ //    3
@@ -125,18 +204,17 @@ function recogerInput(){ //    3
 
 
 function sacarAreaPeri(base,altura){    //Formulas de area y perimetro para el triangulo
-    let area = (base * altura) / 2;
+
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
     var spanArea = document.createElement('span');
-    spanArea.innerHTML= area + "cm";
+    spanArea.innerHTML= (base*altura)/2 + "cm";
     areaResul.appendChild(spanArea);
 
-    let perimetro = base * 3;
     var periResul = document.querySelector("#perimetro");
     periResul.innerHTML="Perimetro: ";
     var spanPeri = document.createElement('span');
-    spanPeri.innerHTML= perimetro + "cm";
+    spanPeri.innerHTML= altura*3 + "cm";
     periResul.appendChild(spanPeri);
 }
 
@@ -146,13 +224,9 @@ function botonFuncion(){  //    2
     boton.type="submit";
     boton.className="btn btn-warning";
     boton.onclick=(()=>{
-    recogerInput()
-});
+        recogerInput()
+    });
     boton.innerHTML = "Aceptar" 
-
     return boton;
 }
 
-function radio(){
-    
-}

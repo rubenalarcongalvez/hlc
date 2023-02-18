@@ -1,8 +1,9 @@
+export {Circulo} ;
 /**
 * @author Rubén @rubenalarcongalvez
 *
 */
-export class Circulo {
+ class Circulo {
     constructor() {
         this.radio = 0;
     }
