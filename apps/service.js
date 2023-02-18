@@ -126,6 +126,7 @@ function CuadradoCalculos() { //    Esta es la funcion principal del rectangulo
     accion.appendChild(boton);
     
     var calculos = document.querySelector('#calculos');
+    limpiarDiv(calculos);
 
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
@@ -208,6 +209,9 @@ function trianguloCalculos() { //    Esta es la funcion principal del rectangulo
     error.id = 'error';
     error.className = 'col-12 col-md-6';
     /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    
+    var cajaError = document.querySelector('#cajaError');
+    limpiarDiv(cajaError);
 
     //boton con la funcion de area y perimetro
     let boton = botonFuncion();
@@ -217,10 +221,14 @@ function trianguloCalculos() { //    Esta es la funcion principal del rectangulo
     accion.appendChild(boton);
     
     var calculos = document.querySelector('#calculos');
+    limpiarDiv(calculos);
 
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
-    calculos.appendChild(error);
+
+    
+
+    cajaError.appendChild(error);
 }
 
 /**
