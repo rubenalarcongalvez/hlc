@@ -47,7 +47,7 @@ function activar(eleccion) {
     switch (eleccion) {
         case 'triangulo':
             triangulo.className = 'nav-link active text-bg-primary';
-            BaseAlturaTri();
+            BaseAlturaTri(); 
             break;
 
         case 'rectangulo':
@@ -184,9 +184,9 @@ function BaseAlturaTri() { //    Esta es la funcion principal del rectangulo
     let boton = botonFuncion();
     
     // insertar la primera parte
-    div.appendChild(cajita1);
-    div.appendChild(cajita2);
-    div.appendChild(boton);
+    accion.appendChild(cajita1);
+    accion.appendChild(cajita2);
+    accion.appendChild(boton);
     
     var calculos = document.querySelector('#calculos');
 
