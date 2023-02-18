@@ -96,7 +96,7 @@ function activar(eleccion) {
 =============================================*/
 
 function CuadradoCalculos() {
-    //    Esta es la funcion principal del rectangulo
+    //    Esta es la funcion principal del cuadrado
     let accion = obtenerMain();
     limpiarDiv(accion);
     accion.className = 'd-flex flex-wrap justify-content-center gap-4 pt-2 col-10 m-auto';
@@ -107,13 +107,15 @@ function CuadradoCalculos() {
     cajita1.id = 'cajita1';
     cajita1.className = 'col-5';
 
-    // El parrafo para el resultado del area
-    let area = document.createElement('h3');
-    area.id = 'area';
-
-    // El parrafo para el resultado del perimetro
-    let perimetro = document.createElement('h3');
-    perimetro.id = 'perimetro';
+     // El parrafo para el resultado del area
+     let area = document.createElement('h3');
+     area.id = 'area';
+     area.className = 'col-12 col-md-6';
+ 
+     // El parrafo para el resultado del perimetro
+     let perimetro = document.createElement('h3');
+     perimetro.id = 'perimetro';
+     area.className = 'col-12 col-md-6';
 
     var error = document.createElement('h3');
     error.id = 'error';
@@ -125,7 +127,7 @@ function CuadradoCalculos() {
 
 
     //boton con la funcion de area y perimetro
-    let boton = botonFuncionCua();
+    let boton = botonFuncionCua(error);
 
     // insertar la primera parte
     accion.appendChild(cajita1);
@@ -136,6 +138,8 @@ function CuadradoCalculos() {
 
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
+    cajaError.appendChild(error);
+
 }
 
 function recogerInputCua() {
@@ -153,6 +157,10 @@ function sacarAreaPeriCua(lado) {
         var spanError = document.createElement('span');
         spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
         spanError.className = 'text-decoration-underline';
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = 'Area: ';
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = 'Perimetro: ';
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
@@ -180,7 +188,7 @@ function botonFuncionCua() {
     var boton = document.createElement('button');
 
     boton.type = 'submit';
-    boton.className = 'btn btn-warning col-12 col-lg';
+    boton.className = 'btn btn-warning col-12 col-lg-3';
     /* Modificación de Rubén para validación 18/02/2023 */
     boton.onclick = () => {
         if (error) {
@@ -188,7 +196,7 @@ function botonFuncionCua() {
             error.className = '';
             error.innerHTML = null;
         }
-        recogerInput();
+        recogerInputCua();
     };
     /* Fin de modificación de Rubén para validación 18/02/2023 */
     boton.innerHTML = 'Aceptar';
@@ -246,7 +254,7 @@ function trianguloCalculos() {
     limpiarDiv(cajaError);
 
     //boton con la funcion de area y perimetro
-    let boton = botonFuncion(error);
+    let boton = botonFuncion();
 
     accion.appendChild(cajita1);
     accion.appendChild(cajita2);
@@ -312,6 +320,10 @@ function sacarAreaPeri(base, altura) {
         var spanError = document.createElement('span');
         spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
         spanError.className = 'text-decoration-underline';
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = '';
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = '';
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
