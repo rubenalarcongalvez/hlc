@@ -137,10 +137,11 @@ function recogerInputCua(){
 }
 
 function sacarAreaPeri(lado){    //Formulas de area y perimetro para el cuadrado
+    var area = (Math.pow(lado, 2));
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
     var spanArea = document.createElement('span');
-    spanArea.innerHTML= (Math.pow(lado, 2)) + "cm";
+    spanArea.innerHTML= area + "cm";
     areaResul.appendChild(spanArea);
 
     var periResul = document.querySelector("#perimetro");
@@ -208,11 +209,21 @@ function trianguloCalculos() { //    Esta es la funcion principal del rectangulo
     //boton con la funcion de area y perimetro
     let boton = botonFuncion();
     
-    insertar2inputBoton(accion, cajita1, cajita2, boton);
+    accion.appendChild(cajita1);
+    accion.appendChild(cajita2);
+    accion.appendChild(boton);
     
-    accion.appendChild(area);
-    accion.appendChild(perimetro);
+    var calculos = document.querySelector('#calculos');
+
+    calculos.appendChild(area);
+    calculos.appendChild(perimetro);
+    calculos.appendChild(error);
 }
+
+/**
+ * @author Diego - @dieguxo91 17/02/2023
+ *
+ */
 
 function recogerInput(){ //    3
     var base = document.querySelector("#cajita1");
@@ -221,33 +232,100 @@ function recogerInput(){ //    3
     sacarAreaPeri(base.value, altura.value);
 }
 
+/**
+ * @author Diego - @dieguxo91 17/02/2023
+ *
+ */
 
-function sacarAreaPeri(base,altura){    //Formulas de area y perimetro para el triangulo
-    let area = (base * altura) / 2;
-    var areaResul = document.querySelector("#area");
-    areaResul.innerHTML="Area: ";
-    var spanArea = document.createElement('span');
-    spanArea.innerHTML= area + "cm";
-    areaResul.appendChild(spanArea);
-
-    let perimetro = base * 3;
-    var periResul = document.querySelector("#perimetro");
-    periResul.innerHTML="Perimetro: ";
-    var spanPeri = document.createElement('span');
-    spanPeri.innerHTML= perimetro + "cm";
-    periResul.appendChild(spanPeri);
-}
-
-function botonFuncion(){  //    2
+function botonFuncion() {  
     var boton = document.createElement('button');
 
-    boton.type="submit";
-    boton.className="btn btn-warning";
-    boton.onclick=(()=>{
-    recogerInput()
-    });
-    boton.innerHTML = "Aceptar" 
+    boton.type = 'submit';
+    boton.className = 'btn btn-warning col-12 col-lg';
+    /* Modificación de Rubén para validación 18/02/2023 */
+    boton.onclick = () => {
+        if (error) { //Si había un error antes, restablecemos
+            error.className = "";
+            error.innerHTML = null;
+        }
+        recogerInput();
+    };
+    /* Fin de modificación de Rubén para validación 18/02/2023 */
+    boton.innerHTML = 'Aceptar';
 
     return boton;
 }
 
+
+/**
+ * @author Diego - @dieguxo91 17/02/2023
+ *
+ */
+function sacarAreaPeri(base, altura) {
+    /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    //Si hay error, una cosa, si no, otra
+    if (base < 0 || altura < 0) {
+        var error = document.querySelector('#error');
+        error.innerHTML = 'ERROR: ';
+        error.className = 'bg-danger text-white rounded p-3';
+        var spanError = document.createElement('span');
+        spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
+        spanError.className = 'text-decoration-underline';
+        error.appendChild(spanError);
+    } else {
+        //Formulas de area y perimetro para el triangulo
+        let area = (base * altura) / 2;
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = 'Área: ';
+        areaResul.className = 'bg-primary text-white rounded p-3';
+        var spanArea = document.createElement('span');
+        spanArea.innerHTML = area + 'cm';
+        spanArea.className = 'text-decoration-underline';
+        areaResul.appendChild(spanArea);
+
+        let perimetro = base * 3;
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = 'Perímetro: ';
+        periResul.className = 'bg-success text-white rounded p-3';
+        var spanPeri = document.createElement('span');
+        spanPeri.innerHTML = perimetro + 'cm';
+        spanPeri.className = 'text-decoration-underline';
+        periResul.appendChild(spanPeri);
+    }
+    /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+}
+
+/*=====  Final de Triangulo  ======*/
+
+
+
+
+/*=============================================
+=            Rectangulo            =
+=============================================*/
+
+/*=====  Final de Rectangulo  ======*/
+
+/*=============================================
+=            Circulo            =
+=============================================*/
+
+/*=====  Final de Circulo  ======*/
+
+/*=============================================
+=            Pentagono            =
+=============================================*/
+
+/*=====  Final de Pentagono  ======*/
+
+/*=============================================
+=            Cuadrado            =
+=============================================*/
+
+/*=====  Final de Cuadrado  ======*/
+
+/*=============================================
+=            Hexagono            =
+=============================================*/
+
+/*=====  Final de Hexagono  ======*/
