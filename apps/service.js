@@ -174,7 +174,7 @@ function trianguloCalculos() {
     let accion = obtenerMain();
     limpiarDiv(accion);
 
-    accion.className = 'd-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto';
+    accion.className = 'd-flex flex-wrap justify-content-center  gap-4 pt-2 col-10 m-auto';
     // el input para la base
     let cajita1 = crearInput();
     cajita1.placeholder = 'Base';
