@@ -115,6 +115,15 @@ function CuadradoCalculos() {
     let perimetro = document.createElement('h3');
     perimetro.id = 'perimetro';
 
+    var error = document.createElement('h3');
+    error.id = 'error';
+    error.className = 'col-12 col-md-6';
+    /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    
+    var cajaError = document.querySelector('#cajaError');
+    limpiarDiv(cajaError);
+
+
     //boton con la funcion de area y perimetro
     let boton = botonFuncionCua();
 
@@ -131,35 +140,59 @@ function CuadradoCalculos() {
 
 function recogerInputCua() {
     var lado = document.querySelector('#cajita1');
-    sacarAreaPeri(lado.value);
+    sacarAreaPeriCua(lado.value);
 }
 
-function sacarAreaPeri(lado) {
-    //Formulas de area y perimetro para el cuadrado
-    var area = Math.pow(lado, 2);
-    var areaResul = document.querySelector('#area');
-    areaResul.innerHTML = 'Area: ';
-    var spanArea = document.createElement('span');
-    spanArea.innerHTML = area + 'cm';
-    areaResul.appendChild(spanArea);
+function sacarAreaPeriCua(lado) {
+    /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    //Si hay error, una cosa, si no, otra
+    if (lado < 0 ) {
+        var error = document.querySelector('#error');
+        error.innerHTML = 'ERROR: ';
+        error.className = 'bg-danger text-white rounded p-3';
+        var spanError = document.createElement('span');
+        spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
+        spanError.className = 'text-decoration-underline';
+        error.appendChild(spanError);
+    } else {
+        //Formulas de area y perimetro para el triangulo
+        let area = Math.pow(lado, 2);
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = 'Área: ';
+        areaResul.className = 'bg-primary text-white rounded p-3';
+        var spanArea = document.createElement('span');
+        spanArea.innerHTML = area + 'cm';
+        spanArea.className = 'text-decoration-underline';
+        areaResul.appendChild(spanArea);
 
-    var periResul = document.querySelector('#perimetro');
-    periResul.innerHTML = 'Perimetro: ';
-    var spanPeri = document.createElement('span');
-    spanPeri.innerHTML = lado * 4 + 'cm';
-    periResul.appendChild(spanPeri);
+        let perimetro = lado * 4;
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = 'Perímetro: ';
+        periResul.className = 'bg-success text-white rounded p-3';
+        var spanPeri = document.createElement('span');
+        spanPeri.innerHTML = perimetro + 'cm';
+        spanPeri.className = 'text-decoration-underline';
+        periResul.appendChild(spanPeri);
+    }
 }
 
 function botonFuncionCua() {
-    //    2
     var boton = document.createElement('button');
 
     boton.type = 'submit';
-    boton.className = 'btn btn-warning';
+    boton.className = 'btn btn-warning col-12 col-lg';
+    /* Modificación de Rubén para validación 18/02/2023 */
     boton.onclick = () => {
-        recogerInputCua();
+        if (error) {
+            //Si había un error antes, restablecemos
+            error.className = '';
+            error.innerHTML = null;
+        }
+        recogerInput();
     };
+    /* Fin de modificación de Rubén para validación 18/02/2023 */
     boton.innerHTML = 'Aceptar';
+
     return boton;
 }
 
@@ -213,7 +246,7 @@ function trianguloCalculos() {
     limpiarDiv(cajaError);
 
     //boton con la funcion de area y perimetro
-    let boton = botonFuncion();
+    let boton = botonFuncion(error);
 
     accion.appendChild(cajita1);
     accion.appendChild(cajita2);
@@ -225,8 +258,6 @@ function trianguloCalculos() {
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
 
-    
-
     cajaError.appendChild(error);
 }
 
@@ -236,7 +267,6 @@ function trianguloCalculos() {
  */
 
 function recogerInput() {
-    //    3
     var base = document.querySelector('#cajita1');
     var altura = document.querySelector('#cajita2');
 
