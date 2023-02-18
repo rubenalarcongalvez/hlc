@@ -1,4 +1,3 @@
-
 /**
  * @author Diego - @dieguxo91 11/02/2023
  *
@@ -63,7 +62,6 @@ function activar(eleccion) {
 
         case 'rectangulo':
             rectangulo.className = 'nav-link active text-bg-primary';
-            
             break;
 
         case 'circulo':
@@ -89,42 +87,41 @@ function activar(eleccion) {
 }
 
 /**
-* @author Diego @dieguxo91
-*
-*/
+ * @author Diego @dieguxo91
+ *
+ */
 
 /*=============================================
 =            Cuadrado           =
 =============================================*/
 
-//  Cuadrado
-
-function CuadradoCalculos() { //    Esta es la funcion principal del rectangulo 
+function CuadradoCalculos() {
+    //    Esta es la funcion principal del rectangulo
     let accion = obtenerMain();
     limpiarDiv(accion);
-    accion.className = "d-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto";
-    
+    accion.className = 'd-flex flex-wrap justify-content-center gap-4 pt-2 col-10 m-auto';
+
     // el input para la base
     let cajita1 = crearInput();
-    cajita1.placeholder="Introduzca el lado";
-    cajita1.id = "cajita1";
-    cajita1.className="col-5";
+    cajita1.placeholder = 'Introduzca el lado';
+    cajita1.id = 'cajita1';
+    cajita1.className = 'col-5';
 
     // El parrafo para el resultado del area
     let area = document.createElement('h3');
-    area.id = "area";
+    area.id = 'area';
 
     // El parrafo para el resultado del perimetro
     let perimetro = document.createElement('h3');
-    perimetro.id = "perimetro";
+    perimetro.id = 'perimetro';
 
     //boton con la funcion de area y perimetro
     let boton = botonFuncionCua();
-    
+
     // insertar la primera parte
     accion.appendChild(cajita1);
     accion.appendChild(boton);
-    
+
     var calculos = document.querySelector('#calculos');
     limpiarDiv(calculos);
 
@@ -132,50 +129,52 @@ function CuadradoCalculos() { //    Esta es la funcion principal del rectangulo
     calculos.appendChild(perimetro);
 }
 
-function recogerInputCua(){ 
-    var lado = document.querySelector("#cajita1");
+function recogerInputCua() {
+    var lado = document.querySelector('#cajita1');
     sacarAreaPeri(lado.value);
 }
 
-function sacarAreaPeri(lado){    //Formulas de area y perimetro para el cuadrado
-    var area = (Math.pow(lado, 2));
-    var areaResul = document.querySelector("#area");
-    areaResul.innerHTML="Area: ";
+function sacarAreaPeri(lado) {
+    //Formulas de area y perimetro para el cuadrado
+    var area = Math.pow(lado, 2);
+    var areaResul = document.querySelector('#area');
+    areaResul.innerHTML = 'Area: ';
     var spanArea = document.createElement('span');
-    spanArea.innerHTML= area + "cm";
+    spanArea.innerHTML = area + 'cm';
     areaResul.appendChild(spanArea);
 
-    var periResul = document.querySelector("#perimetro");
-    periResul.innerHTML="Perimetro: ";
+    var periResul = document.querySelector('#perimetro');
+    periResul.innerHTML = 'Perimetro: ';
     var spanPeri = document.createElement('span');
-    spanPeri.innerHTML= lado*4 + "cm";
+    spanPeri.innerHTML = lado * 4 + 'cm';
     periResul.appendChild(spanPeri);
 }
 
-function botonFuncionCua(){  //    2
+function botonFuncionCua() {
+    //    2
     var boton = document.createElement('button');
 
-    boton.type="submit";
-    boton.className="btn btn-warning";
-    boton.onclick=(()=>{
-        recogerInputCua()
-    });
-    boton.innerHTML = "Aceptar" 
+    boton.type = 'submit';
+    boton.className = 'btn btn-warning';
+    boton.onclick = () => {
+        recogerInputCua();
+    };
+    boton.innerHTML = 'Aceptar';
     return boton;
 }
 
 /*=====  Final de Cuadrado  ======*/
 
-
 /*=============================================
 =            Triangulo            =
 =============================================*/
 
-function trianguloCalculos() { //    Esta es la funcion principal del rectangulo 
+function trianguloCalculos() {
+    //    Esta es la funcion principal del rectangulo
     let accion = obtenerMain();
     limpiarDiv(accion);
 
-    accion.className = "d-flex flex-wrap justiy-content-center  gap-4 pt-2 col-10 m-auto";
+    accion.className = 'd-flex flex-wrap justify-content-center  gap-4 pt-2 col-10 m-auto';
     // el input para la base
     let cajita1 = crearInput();
     cajita1.placeholder = 'Base';
@@ -215,11 +214,11 @@ function trianguloCalculos() { //    Esta es la funcion principal del rectangulo
 
     //boton con la funcion de area y perimetro
     let boton = botonFuncion();
-    
+
     accion.appendChild(cajita1);
     accion.appendChild(cajita2);
     accion.appendChild(boton);
-    
+
     var calculos = document.querySelector('#calculos');
     limpiarDiv(calculos);
 
@@ -236,10 +235,11 @@ function trianguloCalculos() { //    Esta es la funcion principal del rectangulo
  *
  */
 
-function recogerInput(){ //    3
-    var base = document.querySelector("#cajita1");
-    var altura = document.querySelector("#cajita2");
-    
+function recogerInput() {
+    //    3
+    var base = document.querySelector('#cajita1');
+    var altura = document.querySelector('#cajita2');
+
     sacarAreaPeri(base.value, altura.value);
 }
 
@@ -248,15 +248,16 @@ function recogerInput(){ //    3
  *
  */
 
-function botonFuncion() {  
+function botonFuncion() {
     var boton = document.createElement('button');
 
     boton.type = 'submit';
     boton.className = 'btn btn-warning col-12 col-lg';
     /* Modificación de Rubén para validación 18/02/2023 */
     boton.onclick = () => {
-        if (error) { //Si había un error antes, restablecemos
-            error.className = "";
+        if (error) {
+            //Si había un error antes, restablecemos
+            error.className = '';
             error.innerHTML = null;
         }
         recogerInput();
@@ -266,7 +267,6 @@ function botonFuncion() {
 
     return boton;
 }
-
 
 /**
  * @author Diego - @dieguxo91 17/02/2023
@@ -307,9 +307,6 @@ function sacarAreaPeri(base, altura) {
 }
 
 /*=====  Final de Triangulo  ======*/
-
-
-
 
 /*=============================================
 =            Rectangulo            =
