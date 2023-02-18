@@ -87,130 +87,16 @@ function activar(eleccion) {
 }
 
 /**
- * @author Diego @dieguxo91
+ * @author Diego - @dieguxo91 18/02/2023
  *
  */
-
-/*=============================================
-=            Cuadrado           =
-=============================================*/
-
-function CuadradoCalculos() {
-    //    Esta es la funcion principal del cuadrado
-    let accion = obtenerMain();
-    limpiarDiv(accion);
-    accion.className = 'd-flex flex-wrap justify-content-center gap-4 pt-2 col-10 m-auto';
-
-    // el input para la base
-    let cajita1 = crearInput();
-    cajita1.placeholder = 'Introduzca el lado';
-    cajita1.id = 'cajita1';
-    cajita1.className = 'col-5';
-
-     // El parrafo para el resultado del area
-     let area = document.createElement('h3');
-     area.id = 'area';
-     area.className = 'col-12 col-md-6';
- 
-     // El parrafo para el resultado del perimetro
-     let perimetro = document.createElement('h3');
-     perimetro.id = 'perimetro';
-     area.className = 'col-12 col-md-6';
-
-    var error = document.createElement('h3');
-    error.id = 'error';
-    error.className = 'col-12 col-md-6';
-    /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
-    
-    var cajaError = document.querySelector('#cajaError');
-    limpiarDiv(cajaError);
-
-
-    //boton con la funcion de area y perimetro
-    let boton = botonFuncionCua(error);
-
-    // insertar la primera parte
-    accion.appendChild(cajita1);
-    accion.appendChild(boton);
-
-    var calculos = document.querySelector('#calculos');
-    limpiarDiv(calculos);
-
-    calculos.appendChild(area);
-    calculos.appendChild(perimetro);
-    cajaError.appendChild(error);
-
-}
-
-function recogerInputCua() {
-    var lado = document.querySelector('#cajita1');
-    sacarAreaPeriCua(lado.value);
-}
-
-function sacarAreaPeriCua(lado) {
-    /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
-    //Si hay error, una cosa, si no, otra
-    if (lado < 0 ) {
-        var error = document.querySelector('#error');
-        error.innerHTML = 'ERROR: ';
-        error.className = 'bg-danger text-white rounded p-3';
-        var spanError = document.createElement('span');
-        spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
-        spanError.className = 'text-decoration-underline';
-        var areaResul = document.querySelector('#area');
-        areaResul.innerHTML = 'Area: ';
-        var periResul = document.querySelector('#perimetro');
-        periResul.innerHTML = 'Perimetro: ';
-        error.appendChild(spanError);
-    } else {
-        //Formulas de area y perimetro para el triangulo
-        let area = Math.pow(lado, 2);
-        var areaResul = document.querySelector('#area');
-        areaResul.innerHTML = 'Área: ';
-        areaResul.className = 'bg-primary text-white rounded p-3';
-        var spanArea = document.createElement('span');
-        spanArea.innerHTML = area + 'cm';
-        spanArea.className = 'text-decoration-underline';
-        areaResul.appendChild(spanArea);
-
-        let perimetro = lado * 4;
-        var periResul = document.querySelector('#perimetro');
-        periResul.innerHTML = 'Perímetro: ';
-        periResul.className = 'bg-success text-white rounded p-3';
-        var spanPeri = document.createElement('span');
-        spanPeri.innerHTML = perimetro + 'cm';
-        spanPeri.className = 'text-decoration-underline';
-        periResul.appendChild(spanPeri);
-    }
-}
-
-function botonFuncionCua() {
-    var boton = document.createElement('button');
-
-    boton.type = 'submit';
-    boton.className = 'btn btn-warning col-12 col-lg-3';
-    /* Modificación de Rubén para validación 18/02/2023 */
-    boton.onclick = () => {
-        if (error) {
-            //Si había un error antes, restablecemos
-            error.className = '';
-            error.innerHTML = null;
-        }
-        recogerInputCua();
-    };
-    /* Fin de modificación de Rubén para validación 18/02/2023 */
-    boton.innerHTML = 'Aceptar';
-
-    return boton;
-}
-
-/*=====  Final de Cuadrado  ======*/
 
 /*=============================================
 =            Triangulo            =
 =============================================*/
 
 function trianguloCalculos() {
+    /* Modificación de Rubén para aplicar algunos estilos (clases bootstrap), pocas cosas 18/02/2023 */
     //    Esta es la funcion principal del rectangulo
     let accion = obtenerMain();
     limpiarDiv(accion);
@@ -249,7 +135,7 @@ function trianguloCalculos() {
     error.id = 'error';
     error.className = 'col-12 col-md-6';
     /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
-    
+
     var cajaError = document.querySelector('#cajaError');
     limpiarDiv(cajaError);
 
@@ -322,8 +208,10 @@ function sacarAreaPeri(base, altura) {
         spanError.className = 'text-decoration-underline';
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = '';
+        areaResul.className = '';
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = '';
+        periResul.className = '';
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
@@ -350,6 +238,130 @@ function sacarAreaPeri(base, altura) {
 
 /*=====  Final de Triangulo  ======*/
 
+/**
+ * @author Diego @dieguxo91 18/02/2023
+ *
+ */
+
+/*=============================================
+=            Cuadrado           =
+=============================================*/
+
+function CuadradoCalculos() {
+    /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    //    Esta es la funcion principal del cuadrado
+    let accion = obtenerMain();
+    limpiarDiv(accion);
+    accion.className = 'd-flex flex-wrap justify-content-center gap-4 pt-2 col-10 m-auto';
+
+    // el input para la base
+    let cajita1 = crearInput();
+    cajita1.placeholder = 'Lado';
+    cajita1.id = 'cajita1';
+    cajita1.className = 'col-12 col-lg-5 ps-2 rounded border border-2 border-primary';
+    cajita1.type = 'number';
+    cajita1.min = 0;
+
+    // El parrafo para el resultado del area
+    let area = document.createElement('h3');
+    area.id = 'area';
+    area.className = 'col-12 col-md-6';
+
+    // El parrafo para el resultado del perimetro
+    let perimetro = document.createElement('h3');
+    perimetro.id = 'perimetro';
+    area.className = 'col-12 col-md-6';
+
+    var error = document.createElement('h3');
+    error.id = 'error';
+    error.className = 'col-12 col-md-6';
+    /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+
+    var cajaError = document.querySelector('#cajaError');
+    limpiarDiv(cajaError);
+
+    //boton con la funcion de area y perimetro
+    let boton = botonFuncionCua(error);
+
+    // insertar la primera parte
+    accion.appendChild(cajita1);
+    accion.appendChild(boton);
+
+    var calculos = document.querySelector('#calculos');
+    limpiarDiv(calculos);
+
+    calculos.appendChild(area);
+    calculos.appendChild(perimetro);
+    cajaError.appendChild(error);
+}
+
+function recogerInputCua() {
+    var lado = document.querySelector('#cajita1');
+    sacarAreaPeriCua(lado.value);
+}
+
+function sacarAreaPeriCua(lado) {
+    /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
+    //Si hay error, una cosa, si no, otra
+    if (lado < 0) {
+        var error = document.querySelector('#error');
+        error.innerHTML = 'ERROR: ';
+        error.className = 'bg-danger text-white rounded p-3';
+        var spanError = document.createElement('span');
+        spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
+        spanError.className = 'text-decoration-underline';
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = '';
+        areaResul.className = '';
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = '';
+        periResul.className = '';
+        error.appendChild(spanError);
+    } else {
+        //Formulas de area y perimetro para el triangulo
+        let area = Math.pow(lado, 2);
+        var areaResul = document.querySelector('#area');
+        areaResul.innerHTML = 'Área: ';
+        areaResul.className = 'bg-primary text-white rounded p-3';
+        var spanArea = document.createElement('span');
+        spanArea.innerHTML = area + 'cm';
+        spanArea.className = 'text-decoration-underline';
+        areaResul.appendChild(spanArea);
+
+        let perimetro = lado * 4;
+        var periResul = document.querySelector('#perimetro');
+        periResul.innerHTML = 'Perímetro: ';
+        periResul.className = 'bg-success text-white rounded p-3';
+        var spanPeri = document.createElement('span');
+        spanPeri.innerHTML = perimetro + 'cm';
+        spanPeri.className = 'text-decoration-underline';
+        periResul.appendChild(spanPeri);
+    }
+    /* Fin de modificación de Rubén para validación 18/02/2023 */
+}
+
+function botonFuncionCua() {
+    var boton = document.createElement('button');
+
+    boton.type = 'submit';
+    boton.className = 'btn btn-warning col-12 col-lg-3';
+    /* Modificación de Rubén para validación 18/02/2023 */
+    boton.onclick = () => {
+        if (error) {
+            //Si había un error antes, restablecemos
+            error.className = '';
+            error.innerHTML = null;
+        }
+        recogerInputCua();
+    };
+    /* Fin de modificación de Rubén para validación 18/02/2023 */
+    boton.innerHTML = 'Aceptar';
+
+    return boton;
+}
+
+/*=====  Final de Cuadrado  ======*/
+
 /*=============================================
 =            Rectangulo            =
 =============================================*/
@@ -367,12 +379,6 @@ function sacarAreaPeri(base, altura) {
 =============================================*/
 
 /*=====  Final de Pentagono  ======*/
-
-/*=============================================
-=            Cuadrado            =
-=============================================*/
-
-/*=====  Final de Cuadrado  ======*/
 
 /*=============================================
 =            Hexagono            =
