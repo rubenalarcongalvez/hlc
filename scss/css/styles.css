@@ -1,0 +1,34 @@
+/*=============================================
+=            Formato general            =
+=============================================*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+/*=====  Final de Formato general  ======*/
+/*=============================================
+=            Formato proyecto            =
+=============================================*/
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: aqua;
+}
+
+#disclamer:hover {
+  padding-top: 10px;
+  background-color: darkred;
+  border-radius: 10px;
+  border: 1px solid white;
+  -webkit-transition: background-color 1s, border 1s;
+  transition: background-color 1s, border 1s;
+}
+
+/*=====  Final de Formato proyecto  ======*//*# sourceMappingURL=styles.css.map */
