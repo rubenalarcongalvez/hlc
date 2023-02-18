@@ -9,16 +9,6 @@ function crearInput() {
 }
 
 /**
- * @author Diego - @dieguxo91 17/02/2023
- *
- */
-function insertar2inputBoton(div, input, input2, boton) {
-    div.appendChild(input);
-    div.appendChild(input2);
-    div.appendChild(boton);
-}
-
-/**
  * @author Rubén - @rubenalarcongalvez 18/02/2023
  *
  */
@@ -150,7 +140,7 @@ function sacarAreaPeri(lado){    //Formulas de area y perimetro para el cuadrado
     var areaResul = document.querySelector("#area");
     areaResul.innerHTML="Area: ";
     var spanArea = document.createElement('span');
-    spanArea.innerHTML= Math.pow(lado, 2) + "cm";
+    spanArea.innerHTML= (Math.pow(lado, 2)) + "cm";
     areaResul.appendChild(spanArea);
 
     var periResul = document.querySelector("#perimetro");
