@@ -142,16 +142,20 @@ function trianguloCalculos() {
     //boton con la funcion de area y perimetro
     let boton = botonFuncion();
 
+    //insertamos las cajitas y el boton en el div
     accion.appendChild(cajita1);
     accion.appendChild(cajita2);
     accion.appendChild(boton);
 
+    //rescatamos el div de area y perimetro y lo limpiamos
     var calculos = document.querySelector('#calculos');
+    
     limpiarDiv(calculos);
 
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
 
+    //por ultimo guardamos en el error en la capa de error
     cajaError.appendChild(error);
 }
 
@@ -206,12 +210,15 @@ function sacarAreaPeri(base, altura) {
         var spanError = document.createElement('span');
         spanError.innerHTML = 'Alguno de los números introducidos no es válido. Por favor, inserte números positivos';
         spanError.className = 'text-decoration-underline';
+
+        // cuando de error limpiamos del area y del perimetro y quitamos la clase
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = '';
         areaResul.className = '';
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = '';
         periResul.className = '';
+        
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
