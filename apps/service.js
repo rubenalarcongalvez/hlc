@@ -67,7 +67,7 @@ function activar(eleccion) {
 
         case 'circulo':
             circulo.className = 'nav-link active text-bg-primary';
-            circuloCalculos()
+            circuloCalculos();
             break;
 
         case 'pentagono':
@@ -153,7 +153,7 @@ function trianguloCalculos() {
 
     //rescatamos el div de area y perimetro y lo limpiamos
     var calculos = document.querySelector('#calculos');
-    
+
     limpiarDiv(calculos);
 
     calculos.appendChild(area);
@@ -222,11 +222,11 @@ function sacarAreaPeri(base, altura) {
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = '';
         periResul.className = '';
-        
+
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
-        let area = (base * altura) / 2;
+        let area = Number((base * altura) / 2).toFixed(2); // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = 'Área: ';
         areaResul.className = 'bg-primary text-white rounded p-3';
@@ -235,7 +235,7 @@ function sacarAreaPeri(base, altura) {
         spanArea.className = 'text-decoration-underline';
         areaResul.appendChild(spanArea);
 
-        let perimetro = base * 3;
+        let perimetro = Number(base * 3).toFixed(2); // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = 'Perímetro: ';
         periResul.className = 'bg-success text-white rounded p-3';
@@ -330,7 +330,7 @@ function sacarAreaPeriCua(lado) {
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
-        let area = Math.pow(lado, 2);
+        let area = Number(Math.pow(lado, 2)).toFixed(2); // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = 'Área: ';
         areaResul.className = 'bg-primary text-white rounded p-3';
@@ -339,7 +339,7 @@ function sacarAreaPeriCua(lado) {
         spanArea.className = 'text-decoration-underline';
         areaResul.appendChild(spanArea);
 
-        let perimetro = lado * 4;
+        let perimetro = Number(lado * 4).toFixed(2); // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = 'Perímetro: ';
         periResul.className = 'bg-success text-white rounded p-3';
@@ -377,7 +377,6 @@ function botonFuncionCua() {
  *
  */
 
-
 /*=============================================
 =            Rectangulo            =
 =============================================*/
@@ -410,7 +409,6 @@ function rectanguloCalculos() {
     area.id = 'area';
     area.className = 'col-12 col-md-6';
 
-    
     let perimetro = document.createElement('h3');
     perimetro.id = 'perimetro';
     area.className = 'col-12 col-md-6';
@@ -418,26 +416,22 @@ function rectanguloCalculos() {
     var error = document.createElement('h3');
     error.id = 'error';
     error.className = 'col-12 col-md-6';
-   
 
     var cajaError = document.querySelector('#cajaError');
     limpiarDiv(cajaError);
 
-    
     let boton = botonFuncion();
 
     accion.appendChild(cajita1);
     accion.appendChild(cajita2);
     accion.appendChild(boton);
 
-
     var calculos = document.querySelector('#calculos');
-    
+
     limpiarDiv(calculos);
 
     calculos.appendChild(area);
     calculos.appendChild(perimetro);
-
 
     cajaError.appendChild(error);
 }
@@ -463,7 +457,7 @@ function botonFuncion() {
 
     boton.type = 'submit';
     boton.className = 'btn btn-warning col-12 col-lg';
-   
+
     boton.onclick = () => {
         if (error) {
             //Si había un error antes, restablecemos
@@ -483,7 +477,6 @@ function botonFuncion() {
  *
  */
 function sacarAreaPeriRec(base, altura) {
-
     if (base < 0 || altura < 0) {
         var error = document.querySelector('#error');
         error.innerHTML = 'ERROR: ';
@@ -499,11 +492,11 @@ function sacarAreaPeriRec(base, altura) {
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = '';
         periResul.className = '';
-        
+
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
-        let area = base * altura;
+        let area = Number(base * altura).toFixed(2); // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = 'Área: ';
         areaResul.className = 'bg-primary text-white rounded p-3';
@@ -512,7 +505,7 @@ function sacarAreaPeriRec(base, altura) {
         spanArea.className = 'text-decoration-underline';
         areaResul.appendChild(spanArea);
 
-        let perimetro = base * 2 + altura*2;
+        let perimetro = Number(base * 2 + altura * 2).toFixed(2);
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = 'Perímetro: ';
         periResul.className = 'bg-success text-white rounded p-3';
@@ -534,7 +527,6 @@ function sacarAreaPeriRec(base, altura) {
 /*=============================================
 =            Circulo            =
 =============================================*/
-
 
 function circuloCalculos() {
     /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
@@ -608,7 +600,7 @@ function sacarAreaPeriCir(radio) {
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
-        let area = Math.PI * Math.pow(radio, 2);
+        let area = Number(Math.PI * Math.pow(radio, 2)).toFixed(2);
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = 'Área: ';
         areaResul.className = 'bg-primary text-white rounded p-3';
@@ -617,7 +609,7 @@ function sacarAreaPeriCir(radio) {
         spanArea.className = 'text-decoration-underline';
         areaResul.appendChild(spanArea);
 
-        let perimetro = 2 * Math.PI * radio;
+        let perimetro = Number(2 * Math.PI * radio).toFixed(2);
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = 'Perímetro: ';
         periResul.className = 'bg-success text-white rounded p-3';
@@ -654,7 +646,6 @@ function botonFuncionCir() {
 /*=============================================
 =            Poligonos           =
 =============================================*/
-
 
 /**
  * @author Javi @ziscou 17/02/2023
@@ -695,7 +686,7 @@ function poligonosCalculos(num_lados) {
     limpiarDiv(cajaError);
 
     //boton con la funcion de area y perimetro
-    let boton = botonFuncionPol(num_lados ,error);
+    let boton = botonFuncionPol(num_lados, error);
 
     // insertar la primera parte
     accion.appendChild(cajita1);
@@ -723,8 +714,8 @@ function botonFuncionPol(num_lados) {
     var boton = document.createElement('button');
 
     boton.type = 'submit';
-    boton.className = 'btn btn-warning col-12 col-lg';
-   
+    boton.className = 'btn btn-warning col-12 col-lg-3'; //Arreglado por Rubén @rubenalarcongalvez
+
     boton.onclick = () => {
         if (error) {
             //Si había un error antes, restablecemos
@@ -743,8 +734,7 @@ function botonFuncionPol(num_lados) {
  * @author Javi @ziscou 17/02/2023
  *
  */
-function sacarAreaPeriPol( num_lados, long_lados) {
-
+function sacarAreaPeriPol(num_lados, long_lados) {
     if (num_lados < 0 || long_lados < 0) {
         var error = document.querySelector('#error');
         error.innerHTML = 'ERROR: ';
@@ -760,11 +750,11 @@ function sacarAreaPeriPol( num_lados, long_lados) {
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = '';
         periResul.className = '';
-        
+
         error.appendChild(spanError);
     } else {
         //Formulas de area y perimetro para el triangulo
-        let perimetro = num_lados * long_lados;
+        let perimetro = Number(num_lados * long_lados).toFixed(2);
         var periResul = document.querySelector('#perimetro');
         periResul.innerHTML = 'Perímetro: ';
         periResul.className = 'bg-success text-white rounded p-3';
@@ -776,15 +766,17 @@ function sacarAreaPeriPol( num_lados, long_lados) {
         let area;
 
         if (num_lados == 5) {
-            area = (perimetro * ((long_lados/2)*Math.sqrt((num_lados+2*Math.sqrt(5))/num_lados)))/2;
-             
-         
-        }else {
-            area = (perimetro * Math.sqrt(Math.pow(long_lados,2)-Math.pow((long_lados/2),2)))/2;
-
+            area = Number(
+                (perimetro * ((long_lados / 2) * Math.sqrt((num_lados + 2 * Math.sqrt(5)) / num_lados))) / 2
+            ).toFixed(2);
+            // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
+        } else {
+            area = Number((perimetro * Math.sqrt(Math.pow(long_lados, 2) - Math.pow(long_lados / 2, 2))) / 2).toFixed(
+                2
+            );
+            // Aplicado redondeo a las centésimas by Rubén @rubenalarcongalvez
         }
 
-        
         var areaResul = document.querySelector('#area');
         areaResul.innerHTML = 'Área: ';
         areaResul.className = 'bg-primary text-white rounded p-3';
@@ -792,8 +784,6 @@ function sacarAreaPeriPol( num_lados, long_lados) {
         spanArea.innerHTML = area + 'cm';
         spanArea.className = 'text-decoration-underline';
         areaResul.appendChild(spanArea);
-
-
     }
     /* Fin de modificación de Rubén para aplicar validación y estilos 18/02/2023 */
 }
@@ -803,6 +793,4 @@ function sacarAreaPeriPol( num_lados, long_lados) {
  *
  */
 
-
 /*=====  Final de Poligonos  ======*/
-
