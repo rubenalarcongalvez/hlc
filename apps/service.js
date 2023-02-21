@@ -586,13 +586,13 @@ function circuloCalculos() {
 
 function recogerInputCir() {
     var radio = document.querySelector('#cajita1');
-    sacarAreaPeriCua(radio.value);
+    sacarAreaPeriCir(radio.value);
 }
 
 function sacarAreaPeriCir(radio) {
     /* Modificación de Rubén para aplicar validación y estilos 18/02/2023 */
     //Si hay error, una cosa, si no, otra
-    if (lado < 0) {
+    if (radio < 0) {
         var error = document.querySelector('#error');
         error.innerHTML = 'ERROR: ';
         error.className = 'bg-danger text-white rounded p-3';
@@ -652,7 +652,7 @@ function botonFuncionCir() {
 /*=====  Final de Circulo  ======*/
 
 /*=============================================
-=            Pentagono            =
+=            Poligonos           =
 =============================================*/
 
 
@@ -804,10 +804,5 @@ function sacarAreaPeriPol( num_lados, long_lados) {
  */
 
 
-/*=====  Final de Pentagono  ======*/
+/*=====  Final de Poligonos  ======*/
 
-/*=============================================
-=            Hexagono            =
-=============================================*/
-
-/*=====  Final de Hexagono  ======*/
